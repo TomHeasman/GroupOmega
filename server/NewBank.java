@@ -23,10 +23,12 @@ public class NewBank {
 		Customer christina = new Customer();
 		christina.addAccount(new Account("Savings", 1500.0));
 		customers.put("Christina", christina);
+		passwords.put("Password2", christina);
 		
 		Customer john = new Customer();
 		john.addAccount(new Account("Checking", 250.0));
 		customers.put("John", john);
+		passwords.put("Password3", john);
 	}
 	
 	public static NewBank getBank() {
@@ -34,7 +36,8 @@ public class NewBank {
 	}
 	
 	public synchronized CustomerID checkLogInDetails(String userName, String password) {
-		if(customers.containsKey(userName)) {
+		//Password check is implemented
+		if(customers.containsKey(userName) && (passwords.containsKey(password))) {
 			return new CustomerID(userName);
 		}
 		return null;

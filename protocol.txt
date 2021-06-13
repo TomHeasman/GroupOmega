@@ -8,6 +8,7 @@ SHOWMYACCOUNTS
 Returns a list of all the customers accounts along with their current balance 
 e.g. Main: 1000.0 
 
+//test
 NEWACCOUNT <Name>
 e.g. NEWACCOUNT Savings
 Returns SUCCESS or FAIL
@@ -19,3 +20,19 @@ Returns SUCCESS or FAIL
 PAY <Person/Company> <Ammount>
 e.g. PAY John 100
 Returns SUCCESS or FAIL
+
+
+Sprint_001{
+	Roles{
+		Scrum Master == TH;
+		Product Ownwer == NH;
+		Scrum Dev Team{
+			MS;
+			PK;
+		}
+	}
+	Deliverables{
+		Create New Accounts;
+		Move Money Between Accounts;
+	}
+}

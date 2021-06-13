@@ -6,9 +6,11 @@ public class NewBank {
 	
 	private static final NewBank bank = new NewBank();
 	private HashMap<String,Customer> customers;
+	private HashMap<String,Customer> passwords;
 	
 	private NewBank() {
 		customers = new HashMap<>();
+		passwords = new HashMap<>();
 		addTestData();
 	}
 	
@@ -16,6 +18,7 @@ public class NewBank {
 		Customer bhagy = new Customer();
 		bhagy.addAccount(new Account("Main", 1000.0));
 		customers.put("Bhagy", bhagy);
+		passwords.put("Password1", bhagy);
 		
 		Customer christina = new Customer();
 		christina.addAccount(new Account("Savings", 1500.0));

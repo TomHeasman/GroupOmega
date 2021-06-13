@@ -35,7 +35,12 @@ public class NewBankClientHandler extends Thread{
 			if(customer != null) {
 				//Line 37 does not actually print this. Can be commented out, and it will still print.
 				out.println("Log In Successful. What do you want to do?");
+				//Adding visual aid to users to provide options what they can do and how.
+				/*
 				System.out.println("1. View Your Accounts: Type == 'SHOWYOURACCOUNTS'");
+				System.out.println("2. Add New Account: Type == 'ADDNEWACCOUNT'");
+				System.out.println("3. Move Money: Type == 'MOVEMONEY'");
+				 */
 				while(true) {
 					String request = in.readLine();
 					System.out.println("Request from " + customer.getKey());

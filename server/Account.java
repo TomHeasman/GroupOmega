@@ -9,7 +9,16 @@ public class Account {
 		this.accountName = accountName;
 		this.openingBalance = openingBalance;
 	}
-	
+
+	/* Pseudo code for moving money between accounts of the same user
+	public moveMoney(String accountToMoveFrom, String accountToMoveTo, double openingBalance, double amountToMove, ) {
+		this.accountName = accountName;
+		this.openingBalance = openingBalance;
+		if (accountToMoveFrom != null && String accountToMoveTo != null){
+
+		}
+	}
+	 */
 	public String toString() {
 		return (accountName + ": " + openingBalance);
 	}

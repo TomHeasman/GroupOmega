@@ -18,6 +18,7 @@ public class NewBank {
 	private void addTestData() {
 		Customer bhagy = new Customer();
 		bhagy.addAccount(new Account("Main", (long) 1000.0));
+		bhagy.addAccount(new Account("Saving", (long) 5750.0));
 		customers.put("Bhagy", bhagy);
 		passwords.put("Password1", bhagy);
 		

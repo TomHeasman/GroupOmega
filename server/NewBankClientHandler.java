@@ -43,8 +43,10 @@ public class NewBankClientHandler extends Thread{
 				out.println();
 				while(true) {
 					String request = in.readLine();
+					//The line below is printed on the 'Server' side
 					System.out.println("Request from " + customer.getKey());
 					String response = bank.processRequest(customer, request);
+					//Might need to add an iterator to segment out all accounts on different line
 					out.println(response);
 				}
 			}

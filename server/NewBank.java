@@ -13,20 +13,21 @@ public class NewBank {
 		passwords = new HashMap<>();
 		addTestData();
 	}
-	
+
+	//Casted all amount to long to avoid rounding up.
 	private void addTestData() {
 		Customer bhagy = new Customer();
-		bhagy.addAccount(new Account("Main", 1000.0));
+		bhagy.addAccount(new Account("Main", (long) 1000.0));
 		customers.put("Bhagy", bhagy);
 		passwords.put("Password1", bhagy);
 		
 		Customer christina = new Customer();
-		christina.addAccount(new Account("Savings", 1500.0));
+		christina.addAccount(new Account("Savings", (long) 1500.0));
 		customers.put("Christina", christina);
 		passwords.put("Password2", christina);
 		
 		Customer john = new Customer();
-		john.addAccount(new Account("Checking", 250.0));
+		john.addAccount(new Account("Checking", (long) 250.0));
 		customers.put("John", john);
 		passwords.put("Password3", john);
 	}
@@ -47,7 +48,8 @@ public class NewBank {
 	public synchronized String processRequest(CustomerID customer, String request) {
 		if(customers.containsKey(customer.getKey())) {
 			switch(request) {
-			case "SHOWMYACCOUNTS" : return showMyAccounts(customer);
+				//Changing 'case' parameter from word to number. Selection 1 == SHOWMYACCOUNTS
+			case "1" : return showMyAccounts(customer);
 			default : return "FAIL";
 			}
 		}

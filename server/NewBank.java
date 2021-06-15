@@ -1,6 +1,9 @@
 package server;
 
 import java.util.HashMap;
+import java.io.BufferedReader;
+
+
 
 public class NewBank {
 	
@@ -51,6 +54,7 @@ public class NewBank {
 			switch(request) {
 				//Changing 'case' parameter from word to number. Selection 1 == SHOWMYACCOUNTS
 			case "1" : return showMyAccounts(customer);
+			//			case "2" : return createNewAccount(customer);
 			default : return "FAIL";
 			}
 		}
@@ -61,4 +65,13 @@ public class NewBank {
 		return (customers.get(customer.getKey())).accountsToString();
 	}
 
+	/*  Pseudo code for creating new account
+	private String createNewAccount(CustomerID customer) {
+		out.println("Name of the new account:"):
+		//read in name of the new account
+		String newAccountName = in.readLine();
+		customer.addAccount(newAccountName, 0.0)
+		return (customers.get(customer.getKey())).accountsToString();
+	}
+	 */
 }

@@ -1,9 +1,6 @@
 package server;
 
 import java.util.HashMap;
-import java.io.BufferedReader;
-
-
 
 public class NewBank {
 	
@@ -16,22 +13,20 @@ public class NewBank {
 		passwords = new HashMap<>();
 		addTestData();
 	}
-
-	//Casted all amount to long to avoid rounding up.
+	//test
 	private void addTestData() {
 		Customer bhagy = new Customer();
-		bhagy.addAccount(new Account("Main", (long) 1000.0));
-		bhagy.addAccount(new Account("Saving", (long) 5750.0));
+		bhagy.addAccount(new Account("Main", 1000.0));
 		customers.put("Bhagy", bhagy);
 		passwords.put("Password1", bhagy);
 		
 		Customer christina = new Customer();
-		christina.addAccount(new Account("Savings", (long) 1500.0));
+		christina.addAccount(new Account("Savings", 1500.0));
 		customers.put("Christina", christina);
 		passwords.put("Password2", christina);
 		
 		Customer john = new Customer();
-		john.addAccount(new Account("Checking", (long) 250.0));
+		john.addAccount(new Account("Checking", 250.0));
 		customers.put("John", john);
 		passwords.put("Password3", john);
 	}
@@ -52,9 +47,7 @@ public class NewBank {
 	public synchronized String processRequest(CustomerID customer, String request) {
 		if(customers.containsKey(customer.getKey())) {
 			switch(request) {
-				//Changing 'case' parameter from word to number. Selection 1 == SHOWMYACCOUNTS
-			case "1" : return showMyAccounts(customer);
-			//			case "2" : return createNewAccount(customer);
+			case "SHOWMYACCOUNTS" : return showMyAccounts(customer);
 			default : return "FAIL";
 			}
 		}
@@ -65,13 +58,4 @@ public class NewBank {
 		return (customers.get(customer.getKey())).accountsToString();
 	}
 
-	/*  Pseudo code for creating new account
-	private String createNewAccount(CustomerID customer) {
-		out.println("Name of the new account:"):
-		//read in name of the new account
-		String newAccountName = in.readLine();
-		customer.addAccount(newAccountName, 0.0)
-		return (customers.get(customer.getKey())).accountsToString();
-	}
-	 */
 }

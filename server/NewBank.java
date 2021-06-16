@@ -70,7 +70,7 @@ public class NewBank {
 		out.println("Name of the new account:"):
 		//read in name of the new account
 		String newAccountName = in.readLine();
-		//ReadInline has to be converted into ""
+		//ReadInline has to be converted into "".
 		customer.addAccount(newAccountName, 0.0)
 		return (customers.get(customer.getKey())).accountsToString();
 	}

@@ -3,27 +3,15 @@ package server;
 public class Account {
 	
 	private String accountName;
-	private long currentBalance;
-	private long amountToMove;
+	private double openingBalance;
 
-	public Account(String accountName, long currentBalance) {
+	public Account(String accountName, double openingBalance) {
 		this.accountName = accountName;
-		this.currentBalance = currentBalance;
+		this.openingBalance = openingBalance;
 	}
-
-	//Shall we have a different Class to handle the actual movement of money and we hand over the request?
-	/* Pseudo code for moving money between accounts of the same user
-	public moveMoneyToAnotherAccount(AccountToMoveTo, long amountToMove,) {
-		this.accountName = accountName;
-		this.currentBalance = currentBalance;
-
-		if (accountToMoveFrom >= currentBalance && String accountToMoveTo != null){
-
-		}
-	}
-	 */
+	
 	public String toString() {
-		return (accountName + ": " + currentBalance);
+		return (accountName + ": " + openingBalance);
 	}
 
 }

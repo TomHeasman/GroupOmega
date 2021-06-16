@@ -15,6 +15,10 @@ public class Account {
 		this.accountName = accountName;
 		this.openingBalance = openingBalance;
 		if (accountToMoveFrom != null && String accountToMoveTo != null){
+		long amountToMove in.readline
+		if (currentBalance >= amountToMove)
+		do {
+
 
 		}
 	}

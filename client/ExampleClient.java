@@ -17,15 +17,21 @@ public class ExampleClient extends Thread{
 	public ExampleClient(String ip, int port) throws UnknownHostException, IOException {
 		server = new Socket(ip,port);
 		userInput = new BufferedReader(new InputStreamReader(System.in)); 
-		bankServerOut = new PrintWriter(server.getOutputStream(), true); 
-		
+		bankServerOut = new PrintWriter(server.getOutputStream(), true);
+
 		bankServerResponceThread = new Thread() {
-			private BufferedReader bankServerIn = new BufferedReader(new InputStreamReader(server.getInputStream())); 
+			private BufferedReader bankServerIn = new BufferedReader(new InputStreamReader(server.getInputStream()));
 			public void run() {
+				boolean serverIsStillOk = true;
 				try {
-					while(true) {
+					while(serverIsStillOk) {
 						String response = bankServerIn.readLine();
-						System.out.println(response);
+						if(response == null) {
+							System.out.println("The server has closed the connection due to prevent brute-force attacks!");
+							serverIsStillOk = false;
+						}else {
+							System.out.println(response);
+						}
 					}
 				} catch (IOException e) {
 					e.printStackTrace();

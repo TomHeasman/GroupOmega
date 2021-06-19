@@ -11,15 +11,17 @@ public class Account {
 	}
 
 	/* Pseudo code for moving money between accounts of the same user
-	public moveMoney(String accountToMoveFrom, String accountToMoveTo, double openingBalance, double amountToMove, ) {
+	public moveMoney(String accountToMoveTo, long amountToMove) {
 		this.accountName = accountName;
 		this.openingBalance = openingBalance;
 		if (accountToMoveFrom != null && String accountToMoveTo != null){
 		long amountToMove in.readline
-		if (currentBalance >= amountToMove)
-		do {
+		if (currentBalance >= amountToMove) {
 
 
+		}
+		else {
+		out.println("Not enough found on your account!");
 		}
 	}
 	 */

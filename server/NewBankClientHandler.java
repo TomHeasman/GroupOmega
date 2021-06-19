@@ -39,7 +39,7 @@ public class NewBankClientHandler extends Thread{
 				//*
 				out.println("1. View Your Accounts: Type == '1'");
 				out.println("2. Add New Account: Type == 'ADDNEWACCOUNT'");
-				out.println("3. Move Money: Type == 'MOVE'");
+				out.println("3. Move Money From Your Current Account: Type == '3'");
 				out.println("----------------------------------------------------------");
 				out.println();
 

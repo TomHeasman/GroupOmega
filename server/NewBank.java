@@ -1,8 +1,9 @@
 package server;
 
+import java.util.Date;
 import java.util.HashMap;
-import java.io.BufferedReader;
-
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class NewBank {
@@ -51,12 +52,12 @@ public class NewBank {
 	// commands from the NewBank customer are processed in this method
 	public synchronized String processRequest(CustomerID customer, String request) {
 		if(customers.containsKey(customer.getKey())) {
-			switch(request) {
-				//Changing 'case' parameter from word to number. Selection 1 == SHOWMYACCOUNTS
-			case "1" : return showMyAccounts(customer);
-			//			case "2" : return createNewAccount(customer);
-			default : return "FAIL";
+			//Changing 'case' parameter from word to number. Selection 1 == SHOWMYACCOUNTS
+			if (request == "1") {
+				return showMyAccounts(customer);
+				//			case "2" : return createNewAccount(customer);
 			}
+			return "FAIL";
 		}
 		return "FAIL";
 	}
@@ -75,4 +76,31 @@ public class NewBank {
 		return (customers.get(customer.getKey())).accountsToString();
 	}
 	 */
+
+	// function for adding compound interest to Primary amount p, over time period t,
+	// at interest rate i, compounded n times
+	public double addInterest(int p, int t, double r, int n) {
+		double amount = p * Math.pow(1 + (r/t), n * t);
+		return amount;
+	}
+
+	// psuedocode for adding daily compound interest
+	/*
+	public void givenUsingTimer_whenSchedulingDailyTask_thenCorrect() {
+		TimerTask repeatedTask = new TimerTask() {
+			public void run() {
+				for (customer : customers) {
+				if (accountType == "Savings" ) {
+					// the add interest to the customer's savings account at the rate of 1.00001
+					customer.updateBalance(	customer.addInterest(customer.currentBalance(), 1, 1.00001, 1))
+				}
+			}
+		};
+		Timer timer = new Timer("Timer");
+		long delay = 1000L;
+		long period = 1000L * 60L * 60L * 24L;
+		timer.scheduleAtFixedRate(repeatedTask, delay, period);
+	}
+	*/
+
 }
